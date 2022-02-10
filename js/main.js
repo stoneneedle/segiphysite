@@ -15,7 +15,7 @@ gifSearch.addEventListener('keypress', getGiphyData);
 function getGiphyData() {
   giphySearchResults.innerHTML = "";
   const gifSearch = document.getElementById('gifSearch');
-  let query = gifSearch.value;
+  let query = encodeURI(gifSearch.value);
   let fetch_url = `${base_url}?q=${query}&api_key=${api_key}&limit=${limit}`;
   //debugPane.textContent += fetch_url;
   // console.log("Key pressed.");
