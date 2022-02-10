@@ -10,7 +10,7 @@ As a content manager, I want to enable integrated Giphy functionality, so that I
 ## Wireframes
 
 ### Wireframe 1 (Index)
-![Wireframe 1](https://github.com/stoneneedle/meditationsite/blob/main/img/SEGiphySite.drawio.png?raw=true "SE Giphy Site Index")
+![Wireframe 1](https://github.com/stoneneedle/segiphysite/blob/main/img/SEGiphySite.drawio.png?raw=true "SE Giphy Site Index")
 
 ## References
 (WIP)
