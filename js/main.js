@@ -9,7 +9,7 @@ let randResults = "5";
 // const giphyRandResults = document.querySelector('#giphyRandResults');
 
 gifSearch.addEventListener('keypress', getGiphyPreview);
-randGifTag.addEventListener('keypress', getGiphyPreview(endpt='rand'));
+randGifTag.addEventListener('keypress', randGiphyPreview);
 
 // Helper function to build div and image
 function createGiphyImgDiv(imgObj) {
@@ -49,15 +49,21 @@ function randGiphyPreview() {
   let tag = encodeURI(randGifTag.value);
   fetch_url = `${rand_url}?tag=${tag}&api_key=${api_key}&limit=${numResults}`;
 
-  let randImgDiv = createGiphyImgDiv(data.data);
-  giphyRandResults.appendChild(randImgDiv);
+  fetch(fetch_url)
+    .then(function(response) {
+      return response.json();
+    }).then(function(data) {
+      let gifDiv = createGiphyImgDiv(data.data);
+      giphyRandResults.appendChild(gifDiv);
+      });
+
 }
 
 const giphySearchBtn = document.querySelector('#giphySearchBtn');
 giphySearchBtn.addEventListener('click', addGiphyData);
 
 // Add Giphy data from typed query to a panel below
-function addGiphyData(endpt='search') {
+function addGiphyData() {
   numResults = document.querySelector('#numResults').value;
   const gifSearch = document.getElementById('gifSearch');
   let query = encodeURI(gifSearch.value);
