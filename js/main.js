@@ -1,7 +1,8 @@
 // Define variables for accessing Giphy's API & select DOM elements
 const base_url = "https://api.giphy.com/v1/gifs/search";
+const rand_url = "https://api.giphy.com/v1/gifs/random";
 const api_key = "OLKuCkrrmFhhJxSa9yLH2FzJvXJOuKQZ";
-let limit = 5;
+let numResults = "5";
 
 const giphySearchResults = document.querySelector('#giphySearchResults');
 const debugPane = document.querySelector('#debugPane');
@@ -21,10 +22,11 @@ function createGiphyImgDiv(imgObj) {
 
 // Preview Giphy data in giphySearchResults pane prior to clicking
 function getGiphyPreview() {
+  numResults = document.querySelector('#numResults').value;
   giphySearchResults.innerHTML = "";
   const gifSearch = document.getElementById('gifSearch');
   let query = encodeURI(gifSearch.value);
-  let fetch_url = `${base_url}?q=${query}&api_key=${api_key}&limit=${limit}`;
+  let fetch_url = `${base_url}?q=${query}&api_key=${api_key}&limit=${numResults}`;
 
   fetch(fetch_url)
     .then(function(response) {
@@ -43,15 +45,15 @@ giphySearchBtn.addEventListener('click', addGiphyData);
 
 // Add Giphy data from typed query to a panel below
 function addGiphyData(e) {
+  numResults = document.querySelector('#numResults').value;
   const gifSearch = document.getElementById('gifSearch');
   let query = encodeURI(gifSearch.value);
-  let fetch_url = `${base_url}?q=${query}&api_key=${api_key}&limit=${limit}`;
+  let fetch_url = `${base_url}?q=${query}&api_key=${api_key}&limit=${numResults}`;
 
   fetch(fetch_url)
   .then(function(response) {
     return response.json();
   }).then(function(data) {
-    // console.log(data); // Debug
     let divRow = document.querySelector('.row');
     let newCol = document.createElement('div');
     newCol.setAttribute("class", "col-12 col-sm-6 p-3");
