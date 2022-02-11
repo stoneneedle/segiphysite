@@ -58,7 +58,8 @@ function addGiphyData(e) {
     let newCol = document.createElement('div');
     newCol.setAttribute("class", "col-12 col-sm-6 p-3");
     let newPanel = document.createElement('div');
-    newPanel.setAttribute("class", "p-3 bg-secondary rounded");
+    // newPanel.style.maxWidth = "100%";
+    newPanel.setAttribute("class", "d-flex flex-wrap bg-secondary rounded");
 
     data.data.forEach(function(value) {
       let gifDiv = createGiphyImgDiv(value);
