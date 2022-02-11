@@ -56,7 +56,6 @@ function randGiphyPreview() {
       let gifDiv = createGiphyImgDiv(data.data);
       giphyRandResults.appendChild(gifDiv);
       });
-
 }
 
 const giphySearchBtn = document.querySelector('#giphySearchBtn');
@@ -77,7 +76,6 @@ function addGiphyData() {
     let newCol = document.createElement('div');
     newCol.setAttribute("class", "col-12 col-sm-6 p-3");
     let newPanel = document.createElement('div');
-
     newPanel.setAttribute("class", "d-flex flex-wrap bg-primary rounded");
 
     data.data.forEach(function(value) {
@@ -99,21 +97,21 @@ function addRandGifs() {
   let tag = encodeURI(randGifTag.value);
   fetch_url = `${rand_url}?q=${tag}&api_key=${api_key}`;
 
-  fetch(fetch_url)
-  .then(function(response) {
-    return response.json();
-  }).then(function(data) {
-    let divRow = document.querySelector('.row');
-    let newCol = document.createElement('div');
-    newCol.setAttribute("class", "col-12 col-sm-6 p-3");
-    let newPanel = document.createElement('div');
+  let divRow = document.querySelector('.row');
+  let newCol = document.createElement('div');
+  newCol.setAttribute("class", "col-12 col-sm-6 p-3");
+  let newPanel = document.createElement('div');
+  newPanel.setAttribute("class", "d-flex flex-wrap bg-warning rounded");
 
-    newPanel.setAttribute("class", "d-flex flex-wrap bg-warning rounded");
-
-    let randImgDiv = createGiphyImgDiv(data.data);
-    newPanel.appendChild(randImgDiv);
-
-    newCol.appendChild(newPanel);
-    divRow.appendChild(newCol);
-  });
+  for (let i = 0; i < parseInt(numResults); i++) {
+    fetch(fetch_url)
+    .then(function(response) {
+      return response.json();
+    }).then(function(data) {
+      let randImgDiv = createGiphyImgDiv(data.data);
+      newPanel.appendChild(randImgDiv);
+    });
+  }
+  newCol.appendChild(newPanel);
+  divRow.appendChild(newCol);
 }
