@@ -35,7 +35,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 col-sm-6 p-3">
-          <div class="p-3 bg-secondary rounded">
+          <div class="p-3 bg-primary rounded">
             <form>
               <div class="d-flex flex-column flex-sm-row">
                 <div class="p-1">
@@ -52,7 +52,7 @@
                   </div>
                 </div>
                 <div class="p-1">
-                  <button type="button" class="btn btn-primary" id="giphySearchBtn">Add</button>
+                  <button type="button" class="btn btn-secondary" id="giphySearchBtn">Add</button>
                 </div>
               </div>
             </form>
@@ -61,20 +61,28 @@
         </div>
 
         <div class="col-12 col-sm-6 p-3">
-          <div class="p-3 bg-secondary rounded">
+          <div class="p-3 bg-warning rounded">
             <form>
               <div class="d-flex flex-column flex-sm-row">
                 <div class="p-1">
+                  <select id="randNumResults" class="form-select" aria-label="Default select example">
+                    <option value="5" selected>5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="15">20</option>
+                  </select>
+                </div>
+                <div class="p-1">
                   <div class="form-group">
-                    <input type="text" class="form-control" id="gifTrending" aria-describedby="gifHelp" placeholder="Trending GIFs">
+                    <input type="text" class="form-control" id="randGifTag" aria-describedby="gifHelp" placeholder="Random GIF Tag">
                   </div>
                 </div>
                 <div class="p-1">
-                  <button type="button" class="btn btn-primary" id="giphyTrendingBtn">Add</button>
+                  <button type="button" class="btn btn-success" id="giphyRandBtn">Random!</button>
                 </div>
               </div>
             </form>
-            <div class="d-flex flex-wrap" id="giphyTrendingResults"></div>
+            <div class="d-flex flex-wrap" id="giphyRandResults"></div>
           </div>
         </div>
 

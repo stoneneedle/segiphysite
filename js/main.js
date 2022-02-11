@@ -3,10 +3,13 @@ const base_url = "https://api.giphy.com/v1/gifs/search";
 const rand_url = "https://api.giphy.com/v1/gifs/random";
 const api_key = "OLKuCkrrmFhhJxSa9yLH2FzJvXJOuKQZ";
 let numResults = "5";
+let randResults = "5";
 
-const giphySearchResults = document.querySelector('#giphySearchResults');
-const debugPane = document.querySelector('#debugPane');
+// const giphySearchResults = document.querySelector('#giphySearchResults');
+// const giphyRandResults = document.querySelector('#giphyRandResults');
+
 gifSearch.addEventListener('keypress', getGiphyPreview);
+randGifTag.addEventListener('keypress', getGiphyPreview(endpt='rand'));
 
 // Helper function to build div and image
 function createGiphyImgDiv(imgObj) {
@@ -32,19 +35,29 @@ function getGiphyPreview() {
     .then(function(response) {
       return response.json();
     }).then(function(data) {
-      // console.log(data); // Debug
       data.data.forEach(function(value) {
         let gifDiv = createGiphyImgDiv(value);
         giphySearchResults.appendChild(gifDiv);
-      })
+      });
     });
+}
+
+function randGiphyPreview() {
+  numResults = document.querySelector('#randNumResults').value;
+  giphyRandResults.innerHTML = "";
+  const randGifTag = document.getElementById('randGifTag');
+  let tag = encodeURI(randGifTag.value);
+  fetch_url = `${rand_url}?tag=${tag}&api_key=${api_key}&limit=${numResults}`;
+
+  let randImgDiv = createGiphyImgDiv(data.data);
+  giphyRandResults.appendChild(randImgDiv);
 }
 
 const giphySearchBtn = document.querySelector('#giphySearchBtn');
 giphySearchBtn.addEventListener('click', addGiphyData);
 
 // Add Giphy data from typed query to a panel below
-function addGiphyData(e) {
+function addGiphyData(endpt='search') {
   numResults = document.querySelector('#numResults').value;
   const gifSearch = document.getElementById('gifSearch');
   let query = encodeURI(gifSearch.value);
@@ -58,8 +71,8 @@ function addGiphyData(e) {
     let newCol = document.createElement('div');
     newCol.setAttribute("class", "col-12 col-sm-6 p-3");
     let newPanel = document.createElement('div');
-    // newPanel.style.maxWidth = "100%";
-    newPanel.setAttribute("class", "d-flex flex-wrap bg-secondary rounded");
+
+    newPanel.setAttribute("class", "d-flex flex-wrap bg-primary rounded");
 
     data.data.forEach(function(value) {
       let gifDiv = createGiphyImgDiv(value);
@@ -68,7 +81,33 @@ function addGiphyData(e) {
 
     newCol.appendChild(newPanel);
     divRow.appendChild(newCol);
+  });
+}
 
-    e.preventDefault();
+const giphyRandBtn = document.querySelector('#giphyRandBtn');
+giphyRandBtn.addEventListener('click', addRandGifs);
+
+function addRandGifs() {
+  numResults = document.querySelector('#randNumResults').value;
+  const randGifTag = document.getElementById('randGifTag');
+  let tag = encodeURI(randGifTag.value);
+  fetch_url = `${rand_url}?q=${tag}&api_key=${api_key}`;
+
+  fetch(fetch_url)
+  .then(function(response) {
+    return response.json();
+  }).then(function(data) {
+    let divRow = document.querySelector('.row');
+    let newCol = document.createElement('div');
+    newCol.setAttribute("class", "col-12 col-sm-6 p-3");
+    let newPanel = document.createElement('div');
+
+    newPanel.setAttribute("class", "d-flex flex-wrap bg-warning rounded");
+
+    let randImgDiv = createGiphyImgDiv(data.data);
+    newPanel.appendChild(randImgDiv);
+
+    newCol.appendChild(newPanel);
+    divRow.appendChild(newCol);
   });
 }
