@@ -49,24 +49,28 @@
               </div>
             </form>
             <div class="d-flex flex-wrap" id="giphySearchResults"></div>
-            <div class="container" id="debugPane"></div>
           </div>
-          <!-- <div class="col p-3">
-            <div class="p-3 bg-secondary rounded"></div>
-          </div> -->
-          
         </div>
+
         <div class="col-12 col-sm-6 p-3">
           <div class="p-3 bg-secondary rounded">
-            <!-- <form>
-              <div class="form-group">
-                <label for="trendSearch">Trending</label>
-                <input type="text" class="form-control" id="trendSearch" aria-describedby="trendHelp" placeholder="Search trending GIFs">
+            <form>
+              <div class="d-flex flex-column flex-sm-row">
+                <div class="p-1">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="gifTrending" aria-describedby="gifHelp" placeholder="Trending GIFs">
+                  </div>
+                </div>
+                <div class="p-1">
+                  <button type="button" class="btn btn-primary" id="giphyTrendingBtn">Add</button>
+                </div>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form> -->
+            </form>
+            <div class="d-flex flex-wrap" id="giphyTrendingResults"></div>
           </div>
         </div>
+
+
       </div>
     </div>
 
