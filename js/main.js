@@ -7,6 +7,18 @@ const giphySearchResults = document.querySelector('#giphySearchResults');
 const debugPane = document.querySelector('#debugPane');
 gifSearch.addEventListener('keypress', getGiphyPreview);
 
+// Helper function to build div and image
+function createGiphyImgDiv(imgObj) {
+  let gif_div = document.createElement('div');
+  gif_div.setAttribute("class", "p-1");
+  let gifImg = document.createElement('img');
+  gifImg.setAttribute("src", imgObj.images.original.url);
+  gifImg.setAttribute("class", "img-fluid img-thumbnail");
+  gifImg.style.maxWidth = "100px";
+  gif_div.appendChild(gifImg);
+  return gif_div
+}
+
 // Preview Giphy data in giphySearchResults pane prior to clicking
 function getGiphyPreview() {
   giphySearchResults.innerHTML = "";
@@ -20,13 +32,7 @@ function getGiphyPreview() {
     }).then(function(data) {
       // console.log(data); // Debug
       data.data.forEach(function(value) {
-        let gifDiv = document.createElement('div');
-        gifDiv.setAttribute("class", "p-1");
-        let gifImg = document.createElement('img');
-        gifImg.setAttribute("src", value.images.original.url);
-        gifImg.setAttribute("class", "img-fluid img-thumbnail");
-        gifImg.style.maxWidth = "100px";
-        gifDiv.appendChild(gifImg);
+        let gifDiv = createGiphyImgDiv(value);
         giphySearchResults.appendChild(gifDiv);
       })
     });
@@ -53,13 +59,7 @@ function addGiphyData(e) {
     newPanel.setAttribute("class", "p-3 bg-secondary rounded");
 
     data.data.forEach(function(value) {
-      let gifDiv = document.createElement('div');
-      gifDiv.setAttribute("class", "p-1");
-      let gifImg = document.createElement('img');
-      gifImg.setAttribute("src", value.images.original.url);
-      gifImg.setAttribute("class", "img-fluid img-thumbnail");
-      gifImg.style.maxWidth = "100px";
-      gifDiv.appendChild(gifImg);
+      let gifDiv = createGiphyImgDiv(value);
       newPanel.appendChild(gifDiv);
     });
 
