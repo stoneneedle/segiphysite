@@ -16,10 +16,10 @@ function createGiphyImgDiv(imgObj) {
   let gif_div = document.createElement('div');
   gif_div.setAttribute("class", "p-1");
   let gifImg = document.createElement('img');
-  gifImg.setAttribute("src", imgObj.images.original.url);
+  gifImg.setAttribute("src", imgObj.images.downsized.url);
   gifImg.setAttribute("class", "img-fluid img-thumbnail");
   gifImg.setAttribute("alt", imgObj.id)
-  gifImg.style.maxWidth = "100px";
+  gifImg.style.maxWidth = "200px";
   gif_div.appendChild(gifImg);
   return gif_div
 }
