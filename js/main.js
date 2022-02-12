@@ -18,6 +18,7 @@ function createGiphyImgDiv(imgObj) {
   let gifImg = document.createElement('img');
   gifImg.setAttribute("src", imgObj.images.original.url);
   gifImg.setAttribute("class", "img-fluid img-thumbnail");
+  gifImg.setAttribute("alt", imgObj.id)
   gifImg.style.maxWidth = "100px";
   gif_div.appendChild(gifImg);
   return gif_div
