@@ -3,6 +3,8 @@
 ## Overview
 Web site with a search engine using Giphy's API, a demonstration of API calls using JS fetch() (initially a demonstration of AJAX/jQuery, but as this is moving toward deprecation, fetch() was chosen). This project was undertaken for educational purposes as part of the Hofstra Quickstart web development bootcamp.
 
+The live version may be found at [GIPHY SE Site](https://stoneneedle.github.io/segiphysite).
+
 ## Usage
 There are two search panels on the site. The one on the left (blue) uses Giphy's search API to return a preview of GIF images as the user types. Pushing the 'add' button adds a number of GIFs specified by the select menu to a panel (which is lost on page refresh).
 
@@ -19,7 +21,7 @@ The following ideas represent a possible trajectory for this project:
 1. Chat/texting: Users could send text chats to each other with these, or the interface could itself mod an existing app, such as Discord or WhatsApp (Discord, for example, has already integrated Tenor, a similar service to Giphy, according to Droplr, 2020)
 
 ## User Stories
-As a social media savant, I want to choose any GIF related to the current context of my conversation instantly, so that I can make my friends lol hard.
+As a social media savant, I want to choose any GIF related to the current context of my conversation instantly, so that I can make my friends laugh hard.
 
 As a content manager, I want to enable integrated Giphy functionality, so that I can promote my website to prospective clients.
 
