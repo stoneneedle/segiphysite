@@ -6,9 +6,7 @@ Web site with a search engine using Giphy's API, a demonstration of API calls us
 The live version may be found at [GIPHY SE Site](https://stoneneedle.github.io/segiphysite).
 
 ## Usage
-There are two search panels on the site. The one on the left (blue) uses Giphy's search API to return a preview of GIF images as the user types. Pushing the 'add' button adds a number of GIFs specified by the select menu to a panel (which is lost on page refresh).
-
-The panel on the right (yellow) accesses Giphy's random API. The user may optionally input a tag for the random images to select randomly among tagged image, or specify no tag (recommended).
+There is one search panel on the site. It uses Giphy's search API endpoint to return results to the user, a GIF image based on the query supplied. This demonstrates basic JavaScript knowledge and use of the fetch() function in modern JS.
 
 ## Technologies Used
 This project utilizes front-end JS, HTML, and CSS. The project uses Bootstrap 5 to style and place elements. As this is a prototype that does not demonstrate bundling/more advanced JS technologies, CDNs are used (in a development version, these files would be integrated into the project itself).
