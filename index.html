@@ -29,68 +29,42 @@
   <main>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-12 col-sm-6 p-3">
+        <div class="col-12 col-sm-12 p-3">
           <div class="p-3 bg-primary rounded">
-            <form>
-              <div class="d-flex flex-column flex-sm-row">
+            <div class="d-flex flex-wrap">
+              <form class="giphySearchForm-js">
                 <div class="p-1">
-                  <select id="numResults" class="form-select" aria-label="Default select example">
+                  <select
+                    class="numResults-js form-select"
+                    aria-label="Default select example"
+                  >
                     <option value="5" selected>5</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
                   </select>
                 </div>
                 <div class="p-1">
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="gifSearch" placeholder="Search GIFs">
-                  </div>
+                  <input
+                    type="text"
+                    class="form-control gifSearch-js"
+                    placeholder="Search GIFs"
+                  />
                 </div>
                 <div class="p-1">
-                  <button type="button" class="btn btn-secondary" id="giphySearchBtn">Add</button>
+                  <input
+                    type="submit"
+                    class="btn btn-secondary"
+                    value="Add"
+                  />
                 </div>
-              </div>
-            </form>
-            <div class="d-flex flex-wrap" id="giphySearchResults"></div>
+              </form>
+            </div>
           </div>
         </div>
-
-        <div class="col-12 col-sm-6 p-3">
-          <div class="p-3 bg-warning rounded">
-            <form>
-              <div class="d-flex flex-column flex-sm-row">
-                <div class="p-1">
-                  <select id="randNumResults" class="form-select" aria-label="Default select example">
-                    <option value="5" selected>5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                  </select>
-                </div>
-                <div class="p-1">
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="randGifTag" placeholder="Random GIF Tag">
-                  </div>
-                </div>
-                <div class="p-1">
-                  <button type="button" class="btn btn-success" id="giphyRandBtn">Random!</button>
-                </div>
-              </div>
-            </form>
-            <div class="d-flex flex-wrap" id="giphyRandResults"></div>
-          </div>
-        </div>
-
-
       </div>
+      <div class="row giphySearchResults-js"></div>
     </div>
-
   </main>
-
-
-
-
-
-
-  <footer></footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
