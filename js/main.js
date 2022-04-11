@@ -5,23 +5,28 @@ const api_key = "OLKuCkrrmFhhJxSa9yLH2FzJvXJOuKQZ";
 let numResults = "5";
 let randResults = "5";
 
-// const giphySearchResults = document.querySelector('#giphySearchResults');
-// const giphyRandResults = document.querySelector('#giphyRandResults');
-
 gifSearch.addEventListener('keypress', getGiphyPreview);
 randGifTag.addEventListener('keypress', randGiphyPreview);
 
 // Helper function to build div and image
 function createGiphyImgDiv(imgObj) {
-  let gif_div = document.createElement('div');
-  gif_div.setAttribute("class", "p-1");
-  let gifImg = document.createElement('img');
-  gifImg.setAttribute("src", imgObj.images.downsized.url);
-  gifImg.setAttribute("class", "img-fluid img-thumbnail");
-  gifImg.setAttribute("alt", imgObj.id)
-  gifImg.style.maxWidth = "200px";
-  gif_div.appendChild(gifImg);
-  return gif_div
+  // let gif_div = document.createElement('div');
+  // gif_div.setAttribute("class", "p-1");
+  // let gifImg = document.createElement('img');
+  // gifImg.setAttribute("src", imgObj.images.downsized.url);
+  // gifImg.setAttribute("class", "img-fluid img-thumbnail");
+  // gifImg.setAttribute("alt", imgObj.id)
+  // gifImg.style.maxWidth = "200px";
+  // gif_div.appendChild(gifImg);
+  // return gif_div;
+
+  // return `<div class="p-1">
+  // <img class="img-fluid img-thumbnail" src="${imgObj.downsized.url}" alt="${imgObj.id}" width="200" />
+  // </div>
+  // `;
+
+  return 'TEST';
+
 }
 
 // Preview Giphy data in giphySearchResults pane prior to clicking
