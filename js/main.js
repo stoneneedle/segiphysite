@@ -38,6 +38,13 @@ function addGiphyData(e) {
 
           giphySearchResults.innerHTML = imgsDisplayDiv;
         }
+        else {
+          giphySearchResults.innerHTML = `<div class="col-12 col-sm-12 p-3">
+          <div class="d-flex flex-wrap bg-primary rounded p-3">
+          <div class="p-3"><p>Images unable to be displayed.</p></div>
+          </div>
+          </div>`;
+        }
       });
   }
 }
